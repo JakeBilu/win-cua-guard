@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "win-cua-guard"
+version = "0.1.0"
+description = "DPI-aware Windows Computer Use (CUA) CLI & MCP server with coordinate-grid overlays, .NET UI Automation lookup, and fail-closed safety guardrails."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "JakeBilu" }]
+keywords = ["windows", "computer-use", "cua", "mcp", "ui-automation", "dpi", "safety"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "mcp>=1.0.0",
+  "Pillow>=10.0.0",
+  "pyautogui>=0.9.54",
+  "pywin32>=306; sys_platform == 'win32'",
+  "PyYAML>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/JakeBilu/win-cua-guard"
+Repository = "https://github.com/JakeBilu/win-cua-guard"
+
+[project.scripts]
+win-cua = "win_cua_guard.cli:main"
+win-cua-mcp = "win_cua_guard.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

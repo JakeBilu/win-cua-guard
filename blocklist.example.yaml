@@ -1,0 +1,16 @@
+# Example user-configurable blocklist for win-cua-guard
+# Load via: win-cua --blocklist blocklist.example.yaml ...
+# Or via environment variable: WIN_CUA_BLOCKLIST=/path/to/blocklist.example.yaml
+#
+# Note: Baseline protections (WhatsApp/chat apps, CAPTCHA/Turnstile, #32770 file chooser
+# dialogs, and non-Default Win32 sandbox desktops) remain fail-closed even when empty.
+
+require_default_desktop: true
+
+blocked_patterns:
+  - "(?i)telegram"
+  - "(?i)signal"
+  - "(?i)1password|bitwarden|keepass"
+  - "(?i)banking|payment\\s+gateway"
+
+upload_dialog_pattern: "(?i)^(open|file upload|choose file( to upload)?|select file|save as)$"
